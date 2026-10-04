@@ -1,5 +1,6 @@
 import { conectar } from '../database/conexion.js';
-const bdd = conectar();
+
+const bdd = await conectar();
 
 export const clientes = (pet, resp) => {
     resp.render('clientes');
@@ -25,6 +26,20 @@ export const consultarcli = (pet, resp) => {
     resp.render('consultarcli');
 };
 
-export const nuevocli = (pet, resp) => {
-    resp.send('mateo no jodas');
+export const nuevocli = async (pet, resp) => {
+    let id, nom, dir, tel, ciudad;
+
+    id = pet.body.id;
+    nom = pet.body.nomcli;
+    dir = pet.body.dircli;
+    tel = pet.body.telcli;
+    ciudad = pet.body.ciudad;
+    try {
+        let altasql = `INSERT INTO clientes (idclientes, nombre, direccion, telefono, ciudad) VALUES ('${id}', '${nom}', '${dir}', '${tel}', '${ciudad}')`;
+        const [registro] = await bdd.query(altasql);
+
+        resp.redirect('/clientes');
+    } catch (error) {
+        console.log("Error en la sentencia:", error);
+    }
 };

@@ -9,12 +9,13 @@
 
 <body>
     <h1>ALTA DE CLIENTES</h1>
-    <form action="POST /nuevocli" method="POST">
-        <input name="numcuit" type="text" placeholder="CUIT" maxlength="8" size="15">
+    <form action="/nuevocli" method="POST">
+        <input name="id" type="text" placeholder="ID" maxlength="8" size="15">
         <input name="nomcli" type="text" placeholder="Nombre" maxlength="8" size="15">
         <input name="dircli" type="text" placeholder="Dirección" maxlength="8" size="15">
         <input name="telcli" type="text" placeholder="Teléfono" maxlength="8" size="15">
-        <button>Registrar</button>
+        <input name="ciudad" type="text" placeholder="Ciudad" maxlength="8" size="15">
+        <button name="enviar" type="submit">Registrar</button>
     </form>
 </body>
 

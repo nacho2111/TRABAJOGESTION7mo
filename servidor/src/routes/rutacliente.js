@@ -4,7 +4,9 @@ import { clientes, altacli, bajacli, modcli, mostrarcli, consultarcli, nuevocli 
 const rutacliente = express.Router();
 
 rutacliente.get('/clientes', clientes);
-rutacliente.post('/altacli', altacli);
+rutacliente.get('/altacli', altacli);
+rutacliente.post('/altacli', nuevocli);
+rutacliente.post('/nuevocli', nuevocli);
 rutacliente.get('/bajacli', bajacli);
 rutacliente.get('/modcli', modcli);
 rutacliente.get('/mostrarcli', mostrarcli);
